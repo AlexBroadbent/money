@@ -10,8 +10,8 @@ import kotlin.math.roundToLong
  * @param currency origin of money for the given amount
  */
 class Money private constructor(
-    private val amount: Long = 0,
-    private val currency: Currency = Currency.getInstance(Locale.getDefault())
+    val amount: Long = 0,
+    val currency: Currency = Currency.getInstance(Locale.getDefault())
 ) : Comparable<Money> {
 
     operator fun plus(other: Money) = arithmeticOperation(other) { amount.plus(it) }
