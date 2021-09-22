@@ -1,11 +1,11 @@
 package uk.co.alexbroadbent.money
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.util.*
-import kotlin.test.assertEquals
 
 class MoneyArithmeticTest : BaseTest() {
 
