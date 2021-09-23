@@ -1,10 +1,21 @@
 package uk.co.alexbroadbent.money
 
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Assertions.assertEquals
 import java.util.*
 
 class MoneyComparableTest : BaseTest() {
+
+    @Test
+    fun `test greater than operator`() {
+        assertTrue(tenPounds > fivePounds)
+    }
+
+    @Test
+    fun `test less than operator`() {
+        assertTrue(fiftyPence < onePound)
+    }
 
     @Test
     fun `test ordering with differing amounts`() {

@@ -15,6 +15,12 @@ class MoneyUtilTest : BaseTest() {
         fun `check min`() {
             assertEquals(twoPounds, Money.min(tenPounds, twoPounds))
         }
+
+        @Test
+        fun `check first argument returned when amounts are equal`() {
+            val twoPounds2 = Money.fromMajor(2, gbp)
+            assertEquals(twoPounds, Money.min(tenPounds, twoPounds2))
+        }
     }
 
     @Nested
@@ -24,6 +30,12 @@ class MoneyUtilTest : BaseTest() {
         @Test
         fun `check max`() {
             assertEquals(tenPounds, Money.max(tenPounds, twoPounds))
+        }
+
+        @Test
+        fun `check first argument returned when amounts are equal`() {
+            val tenPounds2 = Money.fromMajor(10, gbp)
+            assertEquals(tenPounds, Money.max(tenPounds, tenPounds2))
         }
     }
 }

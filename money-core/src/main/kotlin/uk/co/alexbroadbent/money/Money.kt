@@ -62,8 +62,8 @@ class Money private constructor(
     private fun toMajorAmount() = amount.toDouble().div(10.toDouble().pow(currency.defaultFractionDigits.toDouble()))
 
     companion object {
-        fun min(a: Money, b: Money): Money = if (a.amount < b.amount) a else b
-        fun max(a: Money, b: Money): Money = if (a.amount > b.amount) a else b
+        fun min(a: Money, b: Money): Money = if (a.amount <= b.amount) a else b
+        fun max(a: Money, b: Money): Money = if (a.amount >= b.amount) a else b
 
         private fun Long.majorToMinor(currency: Currency) = times(currency.toFactor()).toLong()
         private fun Int.majorToMinor(currency: Currency) = times(currency.toFactor()).toLong()

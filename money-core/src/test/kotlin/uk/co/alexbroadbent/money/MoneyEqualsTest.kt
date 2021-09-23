@@ -3,6 +3,7 @@ package uk.co.alexbroadbent.money
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
+import java.util.*
 
 class MoneyEqualsTest : BaseTest() {
 
@@ -10,6 +11,13 @@ class MoneyEqualsTest : BaseTest() {
     fun `check equality on amount and currency`() {
         val twoPoundsTwo = Money.fromMajor(2, gbp)
         assertEquals(twoPoundsTwo, twoPounds)
+    }
+
+    @Test
+    fun `check equality on two different currency objects`() {
+        val money1 = Money.fromMajor(2, Currency.getInstance("GBP"))
+        val money2 = Money.fromMajor(2, Currency.getInstance("GBP"))
+        assertEquals(money1, money2)
     }
 
     @Test
