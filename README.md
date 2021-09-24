@@ -161,7 +161,7 @@ val mapper: ObjectMapper = ObjectMapper().registerKotlinModule().registerModule(
 
 #### Money-Kotlinx-Serialization
 
-Bringing in the Jackson serialization, which also brings in the `money-core` dependency
+Bringing in the kotlinx-serialization, which also brings in the `money-core` dependency
 
 ##### Maven
 
