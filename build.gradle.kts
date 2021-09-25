@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.5.30"
+    id("org.jetbrains.dokka") version "1.5.30"
     `maven-publish`
     signing
 }
@@ -14,6 +15,7 @@ dependencies {
 
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jetbrains.dokka")
     apply(plugin = "org.gradle.maven-publish")
     apply(plugin = "org.gradle.signing")
 
@@ -26,9 +28,17 @@ subprojects {
 
     dependencies {
         implementation(kotlin("stdlib", version = "1.5.30"))
+
+        dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.5.30")
     }
 
     tasks.compileKotlin {
+        sourceCompatibility = JavaVersion.VERSION_11.toString()
+        targetCompatibility = JavaVersion.VERSION_11.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    tasks.compileTestKotlin {
         sourceCompatibility = JavaVersion.VERSION_11.toString()
         targetCompatibility = JavaVersion.VERSION_11.toString()
         kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
@@ -40,13 +50,22 @@ subprojects {
 
     println("> Building Project ${this.name}:${this.version}")
 
-    val sourcesJar = tasks.create<Jar>("sourcesJar") {
-        archiveClassifier.set("sources")
-        from(sourceSets.main.get().allSource)
-    }
-
-    artifacts {
-        archives(sourcesJar)
+    tasks {
+        val sourcesJar by registering(Jar::class) {
+            dependsOn(JavaPlugin.CLASSES_TASK_NAME)
+            archiveClassifier.set("sources")
+            from(sourceSets.main.get().allSource)
+        }
+        val javadocJar by registering(Jar::class) {
+            dependsOn("dokkaJavadoc")
+            archiveClassifier.set("javadoc")
+            from(javadoc)
+        }
+        artifacts {
+            archives(javadocJar)
+            archives(sourcesJar)
+            archives(jar)
+        }
     }
 
     publishing {
