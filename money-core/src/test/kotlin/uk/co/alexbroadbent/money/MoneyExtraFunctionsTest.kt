@@ -37,6 +37,11 @@ class MoneyExtraFunctionsTest : BaseTest() {
         fun `positive check`() {
             assertTrue(tenPounds.isPositive())
         }
+
+        @Test
+        fun `positive operation check`() {
+            assertTrue(tenPounds.plus(fivePounds).isPositive())
+        }
     }
 
     @Nested
@@ -46,6 +51,11 @@ class MoneyExtraFunctionsTest : BaseTest() {
         @Test
         fun `negative check`() {
             assertFalse(fiftyPence.isNegative())
+        }
+
+        @Test
+        fun `negative operation check`() {
+            assertTrue(fiftyPence.minus(fivePounds).isNegative())
         }
     }
 }

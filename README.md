@@ -32,26 +32,21 @@ val tenThousandYen = Money.fromMajor(10_000, YEN)   // ￥10,000
 
 | Method | Example | Purpose |
 | --- | --- | --- |
-| Money.fromMinor(Int, currency) | `Money.fromMinor(50, GBP)` | Constructor using the lowest denomination, this will take the given amount in it's given form.| Money.fromMinor(amount, currency) | Money.fromMinor(50, Currency.getInstance("GBP") | Constructor using the lowest denomination, this will take the given amount in it's given form. In the example, this would represent £0.50p. |
-| Money.fromMinor(Long, currency) | `Money.fromMinor(50, GBP)` | Constructor using the lowest denomination, this will take the given amount in it's given form.| Money.fromMinor(amount, currency) | Money.fromMinor(50, Currency.getInstance("GBP") | Constructor using the lowest denomination, this will take the given amount in it's given form. In the example, this would represent £0.50p. |
-| Money.fromMajor(Int, currency) | `Money.fromMajor(50, EURO)` | Constructor using the lowest denomination, this will take the given amount in it's given form.| Money.fromMinor(amount, currency) | Money.fromMinor(50, Currency.getInstance("GBP") | Constructor using the lowest denomination, this will take the given amount and transorm it using the default number of decimal places for the given currency. In the example, this would represent £50.00 |
-| Money.fromMajor(Long, currency) | `Money.fromMajor(50, YEN)` | Constructor using the lowest denomination, this will take the given amount in it's given form.| Money.fromMinor(amount, currency) | Money.fromMinor(50, Currency.getInstance("GBP") | Constructor using the lowest denomination, this will take the given amount and transorm it using the default number of decimal places for the given currency. In the example, this would represent £50.00 |
-| Money.fromMajor(Double, currency) | `Money.fromMinor(50, EURO)` | Constructor using the lowest denomination, this will take the given amount in it's given form.| Money.fromMinor(amount, currency) | Money.fromMinor(50, Currency.getInstance("GBP") | Constructor using the lowest denomination, this will take the given amount in it's given form. In the example, this would represent £0.50p. |
-| + (Money) | `fivePounds + tenPence` | Addition operator for two  | 
-| + (Int) | `eightCent + 200` | Addition operator which takes an Integer and converts it into the same currency as the given Money object in minor units | 
-| + (Long) | `twoEuros + 500L` | Addition operator which takes a Long and converts it into the same currency as the given Money object in minor units | 
-| - (Money) | `fivePounds - tenPence` | Subtraction operator | 
-| - (Int) | `tenPence - 100` | Subtraction operator which takes an Integer and converts it into the same currency as the given Money object in minor units  | 
-| - (Long) | `fivePounds - 650L` | Subtraction operator which takes a Long and converts it into the same currency as the given Money object in minor units  | 
-| * (Int) | `twoEuros * 4` | Multiply a monetary value by a given factor | 
-| * (Long) | `twoEuros * 10L` | Multiply a monetary value by a given factor | 
-| / (Int) | `tenThousandYen / 2` | Divide a monetary value by a given factor | 
-| / (Long) | `tenThousandYen / 5L` | Divide a monetary value by a given factor | 
-| compareTo | `fivePounds < tenPence` | Comparator that allows `<`, `>` and sorting methods as part of the `Comparable` interface |
+| Money.fromMinor(Int, currency) | `Money.fromMinor(50, GBP)` | Constructor using the lowest denomination, this will take the given amount as the total amount in the given currency. In the example this would produce a Money object of £0.50p | 
+| Money.fromMinor(Long, currency) | `Money.fromMinor(250, GBP)` | Constructor using the lowest denomination, this will take the given amount as the total amount in the given currency. In the example this would produce a Money object of £2.50p |
+| Money.fromMajor(Int, currency) | `Money.fromMajor(50, EURO)` | Constructor using the highest denomination, this will take the given amount in it's given form and factor in the number of decimal places required for the given currency. In the example this would produce a Money object of 50.00 € |
+| Money.fromMajor(Long, currency) | `Money.fromMajor(5000, YEN)` | Constructor using the highest denomination, this will take the given amount in it's given form and factor in the number of decimal places required for the given currency. In the example this would produce a Money object of ￥5000 |
+| Money.fromMajor(Double, currency) | `Money.fromMajor(200, EURO)` | Constructor using the lowest denomination, this will take the given amount in it's given form and factor in the number of decimal places required for the given currency. In the example this would produce a Money object of 200.00 € |
+| + (Money) | `fivePounds + tenPence` | Addition operator for two Money objects. If the currency is not the same then an `IllegalArgumentException` will be thrown | 
+| + (Int or Long) | `twoEuros + 500` | Addition operator which takes a Long and converts it into the same currency as the given Money object in minor units | 
+| - (Money) | `fivePounds - tenPence` | Subtraction operator for two Money objects. If the currency is not the same then an `IllegalArgumentException` will be thrown |
+| - (Int or Long) | `fivePounds - 650` | Subtraction operator which takes a Long and converts it into the same currency as the given Money object in minor units  | 
+| * (Int or Long) | `twoEuros * 10` | Multiply a monetary value by a given factor | 
+| / (Int or Long) | `tenThousandYen / 5L` | Divide a monetary value by a given factor | 
+| compareTo(Money) | `fivePounds < tenPence` | Comparator that allows `<`, `>` and sorting methods by comparing this object with the given Money object for order.<br/><br/>NOTE: this will only compare Money objects by amount and will not take the currency into consideration. Therefore, this operation is only recommended, _but not enforced_, on Money objects with the same currency to avoid any misleading result. |
 | isPositive() | `eightCent.isPositive()` | Check positivity (0 or greater) on the amount of the money object |
 | isNegative() | `fivePounds.isNegative()` | Check negativity (less than 0) on the amount of the money object |
-| percentage(Int) | `tenThousandYen.percentage(50)` | Returns a new Money object as the given percentage of a factor |
-| percentage(Long) | `fivePounds.percentage(10L)` | Returns a new Money object as the given percentage of a factor |
+| percentage(Int or Long) | `fivePounds.percentage(10)` | Takes the given percentile and returns the amount as a percentage of this Money objects' amount. |
 | toString() | `fivePounds.toString()` | Uses the default System locale to print out the money object |
 | toString(Locale) | `twoEuros.toString(Locale.FRANCE)` | Uses the given locale to print out the money object including the symbol and number of decimal places for the locale |
 | Money.min(Money, Money) | `Money.min(fivePence, tenPence)` | Returns the Money object of the smaller amount from two given money objects, if they are equal then the first argument is returned |
