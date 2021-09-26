@@ -1,7 +1,8 @@
 package uk.co.alexbroadbent.money
 
 import java.text.NumberFormat
-import java.util.*
+import java.util.Currency
+import java.util.Locale
 import kotlin.math.pow
 import kotlin.math.roundToLong
 

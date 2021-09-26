@@ -3,7 +3,7 @@ package uk.co.alexbroadbent.money
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.util.*
+import java.util.Currency
 
 class MoneyDeserializerTest : BaseTest() {
 

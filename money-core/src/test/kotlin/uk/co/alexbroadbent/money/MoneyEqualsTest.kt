@@ -3,7 +3,7 @@ package uk.co.alexbroadbent.money
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
-import java.util.*
+import java.util.Currency
 
 class MoneyEqualsTest : BaseTest() {
 

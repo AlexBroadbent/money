@@ -5,7 +5,8 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import java.util.*
+import java.util.Currency
+import java.util.Locale
 
 class MoneyArithmeticTest : BaseTest() {
 

@@ -1,6 +1,6 @@
 package uk.co.alexbroadbent.money
 
-import java.util.*
+import java.util.Currency
 
 abstract class BaseTest {
     val gbp: Currency = Currency.getInstance("GBP")

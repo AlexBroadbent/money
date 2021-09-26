@@ -1,9 +1,10 @@
 package uk.co.alexbroadbent.money
 
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Assertions.assertEquals
-import java.util.*
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
+import java.util.Currency
+import java.util.Locale
 
 class MoneyComparableTest : BaseTest() {
 

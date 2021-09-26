@@ -1,8 +1,8 @@
 package uk.co.alexbroadbent.money
 
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
-import java.util.*
+import org.junit.jupiter.api.Test
+import java.util.Currency
 
 class MoneySerializerTest : BaseTest() {
 
