@@ -9,8 +9,8 @@ The aim of this library is to provide a simple utility class to provide simple o
 ### Features:
 
 * Simple class which stores the amount in the lowest denomination to avoid using decimal numbers
-* Printable using a given `Locale` to format the numbers in the given area, eg. 3.000,00 € or £3,000.00
-* JSON seralization and deserialization modules provided for Jackson, Gson and KotlinX Serialization
+* Printable using a given `Locale` to format the numbers in the given area, eg. £3.000,00 or £3,000.00
+* JSON serialization and deserialization modules provided for Jackson, Gson and KotlinX Serialization
 
 ---
 
