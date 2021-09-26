@@ -67,17 +67,17 @@ Using the core dependency:
 <dependency>
     <groupId>uk.co.alexbroadbent</groupId>
     <artifactId>money-core</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
 ##### Gradle
 
 Groovy: 
-```implementation 'uk.co.alexbroadbent:money-core:0.1.0'```
+```implementation 'uk.co.alexbroadbent:money-core:0.2.0'```
 
 Kotlin: 
-```implementation("uk.co.alexbroadbent:money-core:0.1.0")```
+```implementation("uk.co.alexbroadbent:money-core:0.2.0")```
 
 ##### Usage
 
@@ -103,17 +103,17 @@ Bringing in the Gson serialization, which also brings in the `money-core` depend
 <dependency>
     <groupId>uk.co.alexbroadbent</groupId>
     <artifactId>money-gson</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
 ##### Gradle
 
 Groovy:
-```implementation 'uk.co.alexbroadbent:money-gson:0.1.0'```
+```implementation 'uk.co.alexbroadbent:money-gson:0.2.0'```
 
 Kotlin:
-```implementation("uk.co.alexbroadbent:money-gson:0.1.0")```
+```implementation("uk.co.alexbroadbent:money-gson:0.2.0")```
 
 ##### Usage
 
@@ -136,17 +136,17 @@ Bringing in the Jackson serialization, which also brings in the `money-core` dep
 <dependency>
     <groupId>uk.co.alexbroadbent</groupId>
     <artifactId>money-jackson</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
 ##### Gradle
 
 Groovy:
-```implementation 'uk.co.alexbroadbent:money-jackson:0.1.0'```
+```implementation 'uk.co.alexbroadbent:money-jackson:0.2.0'```
 
 Kotlin:
-```implementation("uk.co.alexbroadbent:money-jackson:0.1.0")```
+```implementation("uk.co.alexbroadbent:money-jackson:0.2.0")```
 
 
 ##### Usage
@@ -170,17 +170,17 @@ Bringing in the kotlinx-serialization, which also brings in the `money-core` dep
 <dependency>
     <groupId>uk.co.alexbroadbent</groupId>
     <artifactId>money-kotlinx-serialization</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
 ##### Gradle
 
 Groovy:
-```implementation 'uk.co.alexbroadbent:money-kotlinx-serialization:0.1.0'```
+```implementation 'uk.co.alexbroadbent:money-kotlinx-serialization:0.2.0'```
 
 Kotlin:
-```implementation("uk.co.alexbroadbent:money-kotlinx-serialization:0.1.0")```
+```implementation("uk.co.alexbroadbent:money-kotlinx-serialization:0.2.0")```
 
 ##### Usage
 
