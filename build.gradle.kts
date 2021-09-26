@@ -70,9 +70,9 @@ subprojects {
     publishing {
         publications {
             create<MavenPublication>("maven") {
-                group = rootProject.group
+                group = this@subprojects.group
                 artifactId = this@subprojects.name
-                version = rootProject.version as String
+                version = this@subprojects.version as String
 
                 from(components["java"])
 

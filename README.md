@@ -77,17 +77,20 @@ Using the core dependency:
 ##### Gradle
 
 Groovy: 
-```groovy implementation 'uk.co.alexbroadbent:money-core:0.1.0' ```
+```implementation 'uk.co.alexbroadbent:money-core:0.1.0'```
 
 Kotlin: 
-```kotlin implementation("uk.co.alexbroadbent:money-core:0.1.0") ```
+```implementation("uk.co.alexbroadbent:money-core:0.1.0")```
 
 ##### Usage
 
-A TypeAdapter has been created to deserialize and serialize `Money` objects, just register the module via:
+The `Money` class can be used as documented above
 
 ```kotlin
-val gson = GsonBuilder().registerMoneyModule().create()
+fun Long.toGBP() = Money.fromMajor(this, Currency.getInstance("GBP"))
+fun Money.print() = this.toString(Locale.UK)
+
+val fivePounds = 5L.toGBP().also { it.print() }
 ```
 
 ---
@@ -110,10 +113,10 @@ Bringing in the Gson serialization, which also brings in the `money-core` depend
 ##### Gradle
 
 Groovy:
-```groovy implementation 'uk.co.alexbroadbent:money-gson:0.1.0' ```
+```implementation 'uk.co.alexbroadbent:money-gson:0.1.0'```
 
 Kotlin:
-```kotlin implementation("uk.co.alexbroadbent:money-gson:0.1.0") ```
+```implementation("uk.co.alexbroadbent:money-gson:0.1.0")```
 
 ##### Usage
 
@@ -143,10 +146,10 @@ Bringing in the Jackson serialization, which also brings in the `money-core` dep
 ##### Gradle
 
 Groovy:
-```groovy implementation 'uk.co.alexbroadbent:money-jackson:0.1.0' ```
+```implementation 'uk.co.alexbroadbent:money-jackson:0.1.0'```
 
 Kotlin:
-```kotlin implementation("uk.co.alexbroadbent:money-jackson:0.1.0") ```
+```implementation("uk.co.alexbroadbent:money-jackson:0.1.0")```
 
 
 ##### Usage
@@ -177,10 +180,10 @@ Bringing in the kotlinx-serialization, which also brings in the `money-core` dep
 ##### Gradle
 
 Groovy:
-```groovy implementation 'uk.co.alexbroadbent:money-kotlinx-serialization:0.1.0' ```
+```implementation 'uk.co.alexbroadbent:money-kotlinx-serialization:0.1.0'```
 
 Kotlin:
-```kotlin implementation("uk.co.alexbroadbent:money-kotlinx-serialization:0.1.0") ```
+```implementation("uk.co.alexbroadbent:money-kotlinx-serialization:0.1.0")```
 
 ##### Usage
 
