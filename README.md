@@ -2,6 +2,8 @@
 
 The aim of this library is to provide a simple utility class to provide simple operations that revolve around money.
 
+![Maven Central](https://img.shields.io/maven-central/v/uk.co.alexbroadbent/money-core)
+
 ---
 
 ### Features:
