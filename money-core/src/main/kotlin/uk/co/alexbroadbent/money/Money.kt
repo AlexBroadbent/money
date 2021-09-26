@@ -16,15 +16,44 @@ class Money private constructor(
 ) : Comparable<Money> {
 
     operator fun plus(other: Money) = arithmeticOperation(other) { amount.plus(it) }
-    operator fun plus(other: Int) = Money(amount = amount.plus(other.majorToMinor(currency)), currency)
-    operator fun plus(other: Long) = Money(amount = amount.plus(other.majorToMinor(currency)), currency)
 
+    /**
+     * Produces a new Money object with the given amount added on, the given amount is converted into minor units for
+     * the currency of this Money object.
+     *
+     * @param other amount to add in minor units, for example 500 = £5.00
+     */
+    operator fun plus(other: Int) = Money(amount = amount.plus(other), currency = currency)
+
+    /**
+     * Produces a new Money object with the given amount added on, the given amount is converted into minor units for
+     * the currency of this Money object.
+     *
+     * @param other amount to add in minor units, for example 10 = £0.10p
+     */
+    operator fun plus(other: Long) = Money(amount = amount.plus(other), currency = currency)
+
+    /**
+     * Produces a new Money object of the given Money object subtracted from this Money object's amount.
+     *
+     * @param other Money object to subtract
+     * @throws IllegalArgumentException if the given Money object has a different currency
+     */
     operator fun minus(other: Money) = arithmeticOperation(other) { amount.minus(it) }
-    operator fun minus(other: Int) = Money(amount = amount.minus(other.majorToMinor(currency)), currency)
-    operator fun minus(other: Long) = Money(amount = amount.minus(other.majorToMinor(currency)), currency)
 
-    operator fun times(other: Int) = Money(amount = amount.times(other), currency)
-    operator fun times(other: Long) = Money(amount = amount.times(other), currency)
+    /**
+     * Produces a new Money object with the given amount subtracted from this Money's amount.
+     *
+     * @param other amount to subtract in minor units, for example 1000 = £10.00
+     */
+    operator fun minus(other: Int) = Money(amount = amount.minus(other), currency = currency)
+
+    /**
+     * Produces a new Money object with the given amount subtracted from this Money's amount.
+     *
+     * @param other amount to subtract in minor units, for example 1000 = £10.00
+     */
+    operator fun minus(other: Long) = Money(amount = amount.minus(other), currency = currency)
 
     operator fun div(other: Int) = Money(amount = amount.toDouble().div(other).roundToLong(), currency)
     operator fun div(other: Long) = Money(amount = amount.toDouble().div(other).roundToLong(), currency)

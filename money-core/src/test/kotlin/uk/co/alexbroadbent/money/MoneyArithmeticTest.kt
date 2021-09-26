@@ -19,13 +19,13 @@ class MoneyArithmeticTest : BaseTest() {
         }
 
         @Test
-        fun `plus int converts into major unit`() {
-            assertEquals(fivePounds, twoPounds + 3)
+        fun `plus int`() {
+            assertEquals(fivePounds, twoPounds + 300)
         }
 
         @Test
-        fun `plus long converts into major unit`() {
-            assertEquals(tenPounds, fivePounds + 5L)
+        fun `plus long`() {
+            assertEquals(onePound, fiftyPence + 50L)
         }
 
         @Test
@@ -45,12 +45,12 @@ class MoneyArithmeticTest : BaseTest() {
 
         @Test
         fun `minus int`() {
-            assertEquals(twoPounds, fivePounds - 3)
+            assertEquals(twoPounds, fivePounds - 300)
         }
 
         @Test
         fun `minus long`() {
-            assertEquals(twoPounds, tenPounds - 8L)
+            assertEquals(twoPounds, tenPounds - 800L)
         }
 
         @Test
