@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.5.30"
+    kotlin("jvm") version "1.7.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
-    id("org.jetbrains.dokka") version "1.5.30"
+    id("org.jetbrains.dokka") version "1.7.0"
     `maven-publish`
     signing
 }
@@ -29,9 +29,9 @@ subprojects {
     }
 
     dependencies {
-        implementation(kotlin("stdlib", version = "1.5.30"))
+        implementation(kotlin("stdlib", version = "1.7.0"))
 
-        dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.5.30")
+        dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.0")
 
         testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.0")
         testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.0")
@@ -46,14 +46,10 @@ subprojects {
 
     tasks {
         compileKotlin {
-            sourceCompatibility = JavaVersion.VERSION_11.toString()
-            targetCompatibility = JavaVersion.VERSION_11.toString()
             kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
         }
 
         compileTestKotlin {
-            sourceCompatibility = JavaVersion.VERSION_11.toString()
-            targetCompatibility = JavaVersion.VERSION_11.toString()
             kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
         }
 

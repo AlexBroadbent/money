@@ -1,5 +1,5 @@
 dependencies {
     implementation(project(":money-core"))
 
-    implementation("com.google.code.gson:gson:2.8.8")
+    implementation("com.google.code.gson:gson:2.9.0")
 }
