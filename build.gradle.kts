@@ -21,8 +21,8 @@ subprojects {
     apply(plugin = "org.gradle.maven-publish")
     apply(plugin = "org.gradle.signing")
 
-    group = "uk.co.alexbroadbent"
-    version = "0.2.0"
+    group = "com.abroadbent"
+    version = "0.3.0"
 
     repositories {
         mavenCentral()
