@@ -2,6 +2,7 @@
 
 The aim of this library is to provide a simple utility class to provide simple operations that revolve around money.
 
+[![Build](https://github.com/AlexBroadbent/money/actions/workflows/build.yml/badge.svg)](https://github.com/AlexBroadbent/money/actions/workflows/build.yml)
 ![Maven Central](https://img.shields.io/maven-central/v/com.abroadbent/money-core)
 
 ---
