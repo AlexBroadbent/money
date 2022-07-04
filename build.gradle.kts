@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    subprojects.forEach { implementation(project(it.path)) }
+    subprojects.forEach { api(project(it.path)) }
 }
 
 subprojects {
@@ -99,13 +99,11 @@ subprojects {
             }
         }
 
-        val NEXUS_USERNAME: String? by project
-        val NEXUS_PASSWORD: String? by project
         repositories {
             maven {
                 credentials {
-                    username = NEXUS_USERNAME
-                    password = NEXUS_PASSWORD
+                    username = System.getenv("NEXUS_USERNAME") ?: findProperty("NEXUS_USERNAME") as? String
+                    password = System.getenv("NEXUS_PASSWORD") ?: findProperty("NEXUS_PASSWORD") as? String
                 }
                 name = "money"
                 setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
