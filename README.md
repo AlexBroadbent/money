@@ -25,9 +25,9 @@ val EURO = Currency.getInstance("EUR")
 val YEN = Currency.getInstance("JPY")
 
 val fivePounds = Money.fromMajor(5, GBP)            // £5.00
-val tenPence = Money.fromMinor(10, GBP)             // £0.10p 
-val twoEuros = Money.fromMajor(2, EURO)             // 0.02 €
-val eightCent = Money.fromMinor(8, EURO)            // 8.00 €
+val tenPence = Money.fromMinor(10, GBP)             // £0.10
+val twoEuros = Money.fromMajor(2, EURO)             // 2.00 €
+val eightCent = Money.fromMinor(8, EURO)            // 0.08 €
 val tenThousandYen = Money.fromMajor(10_000, YEN)   // ￥10,000
 ```
 
